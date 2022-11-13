@@ -1,1 +1,1 @@
-export const HOST = "http://127.0.0.1:8000/";
+export const HOST = "https://50b0-129-110-241-55.ngrok.io/";

@@ -36,6 +36,12 @@ def normalize(beta_value):
     return (beta_value + 26.34494 + 0.1) / (142.730865 - 0.2)
 
 
+@app.get("/sign_up_email/{email}")
+async def sign_up_email(email):
+    if email not in user_info:
+        user_info[email] = {}
+
+
 @app.get("/get_info/{ticker}")
 async def get_info(ticker):
     if ticker in value_map:
