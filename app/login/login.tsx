@@ -50,7 +50,7 @@ export default function LogIn() {
                       type="submit"
                       className="flex w-full justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                       onClick={() => {
-                        fetch(HOST + "sign_up_email/" + inputRef.current.value);
+                        // fetch(HOST + "sign_up_email/" + inputRef.current.value);
                         document.cookie = "email=" + inputRef.current.value;
                         router.push("/");
                       }}

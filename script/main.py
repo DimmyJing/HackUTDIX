@@ -66,11 +66,15 @@ async def put_ticker(email, ticker, amount, confidence):
 
 @app.get("/get_tickers/{email}")
 async def get_tickers(email):
+    if email not in user_info:
+        user_info[email] = {}
     return {i: j for i, j in user_info[email].items() if i != "config"}
 
 
 @app.get("/remove_ticker/{email}/{ticker}")
 async def remove_ticker(email, ticker):
+    if email not in user_info:
+        user_info[email] = {}
     if ticker in user_info[email]:
         del user_info[email][ticker]
     with open("user_map.json", "w") as f:
@@ -79,6 +83,8 @@ async def remove_ticker(email, ticker):
 
 @app.get("/set_user_data/{email}/{exp_return}/{assets}")
 async def set_user_data(email, exp_return, assets):
+    if email not in user_info:
+        user_info[email] = {}
     user_info[email]["config"] = {"exp_return": exp_return, "assets": assets}
     with open("user_map.json", "w") as f:
         json.dump(user_info, f)
@@ -86,6 +92,8 @@ async def set_user_data(email, exp_return, assets):
 
 @app.get("/get_user_data/{email}")
 async def get_user_data(email):
+    if email not in user_info:
+        user_info[email] = {}
     if "config" not in user_info[email]:
         return {"exp_return": 0, "assets": 0}
     return user_info[email]["config"]
@@ -93,6 +101,8 @@ async def get_user_data(email):
 
 @app.get("/get_recommended/{email}")
 async def get_recommended(email):
+    if email not in user_info:
+        user_info[email] = {}
     expected_return = int(user_info[email]["config"]["exp_return"]) / 100 + 0.1
     stocks = [((normalize(j) - expected_return) ** 2, i) for i, j in beta_map.items()]
     stocks.sort()
