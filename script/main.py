@@ -103,6 +103,8 @@ async def get_user_data(email):
 async def get_recommended(email):
     if email not in user_info:
         user_info[email] = {}
+    if "config" not in user_info[email]:
+        user_info[email]["config"] = {"exp_return": 0, "assets": 0}
     expected_return = int(user_info[email]["config"]["exp_return"]) / 100 + 0.1
     stocks = [((normalize(j) - expected_return) ** 2, i) for i, j in beta_map.items()]
     stocks.sort()
