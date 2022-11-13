@@ -2,13 +2,14 @@
 const defaultTheme = require("tailwindcss/defaultTheme");
 module.exports = {
   content: [
-    "./pages/**/*.{html,js,ts,jsx,tsx}",
+    "./app/**/*.{html,js,ts,jsx,tsx}",
     "./stories/**/*.{html,js,ts,jsx,tsx}",
   ],
   theme: {
     extend: {},
   },
   plugins: [
+    require("@tailwindcss/forms"),
     ({ addComponents }) => {
       addComponents({
         ".container": {

@@ -1,0 +1,1 @@
+{"jimmyguding@gmail.com": {"AAPL": {"type": "Stock", "amount": 5, "confidence": 0}, "GOOG": {"type": "Stock", "amount": 5, "confidence": 0}, "MSFT": {"type": "Stock", "amount": 5, "confidence": 0}, "config": {"exp_return": "5", "assets": "100000"}, "MSC": {"amount": "100", "confidence": "-24", "type": "Stock"}}}

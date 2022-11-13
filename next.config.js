@@ -1,3 +1,8 @@
-export const experimental = {
-  appDir: true,
+module.exports = {
+  experimental: {
+    appDir: true,
+    fontLoaders: [
+      { loader: "@next/font/google", options: { subsets: ["latin"] } },
+    ],
+  },
 };
